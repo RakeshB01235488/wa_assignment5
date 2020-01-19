@@ -1,0 +1,123 @@
+
+
+h2 {
+
+    text-align: center;
+
+}
+
+/*
+h1, h3, h4, h5, h6 {
+
+	font-family: 'Arial';
+
+	/*font-weight: 900;*/
+
+}
+*/
+
+
+/*header {
+	background-color: gray;
+	display: flex;
+	flex-direction: column;
+}*/
+/*
+header {
+    
+	background-color: gray;
+    
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+
+	margin-bottom: 20px;
+
+}
+*/
+/*.container {
+
+	max-width: 1200px;
+
+	margin: 0 auto;
+
+	/*padding: 0 10px;	*/
+/*
+	text-align: left;
+
+
+}
+*/
+header > .container > h1 {
+
+
+	display:flex;
+
+}
+
+nav {
+
+	display:flex;
+
+	justify-content: left;
+}
+
+
+
+/*nav > a {
+
+	background-color: lightblue;
+
+	color:gray;
+
+	text-decoration: none;
+
+	font-size: 20px;
+
+	padding:15px;
+
+}
+
+nav > .active {
+
+	background-color: green;
+
+	color: white;
+
+}
+
+nav > a:hover {
+
+	color: rgba(255,255,255, .6);
+
+	background-color: rgba(0,0,0, .15);
+
+	padding:14px;
+
+}*/
+
+
+.upload-buttons {
+
+   background-color:lightyellow;
+   color:gray;
+   
+
+}
+
+.btn-xl {
+    height:35%;
+    width: 50%;
+      
+}
+.no-display {
+	display:none;
+}
+
+.table-responsive {
+	background-color: #FFF;
+}
+
+.buttons-container {
+	margin: 25px 50px;
+	display:flex;
+	justify-content: space-around;
+}

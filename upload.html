@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Homemade+Apple" rel="stylesheet">
+    <link rel="stylesheet" href="style_upload.css">
+    <link rel="stylesheet" href="style.css">
+
+
+  <title>Homework 5</title>
+</head>
+<body>
+    <div class="container">
+      <header>
+        <div>
+            <h1 class="pull-left"><span class="color-blue">HYDRO</span><span class="color-green">QUALITY</span></h1>
+          </div>
+          <div>
+        <ul id="breadcrumb">
+          <li class="active">Upload</li>
+          <li>Verify</li>
+          <li>Configure</li>
+          <li>Run Tests</li>
+          <li>Review</li>
+        </ul>
+      </div>
+    </header>
+
+  <h2>Welcome to the CUAHSI HYDROQUALITY client.</h2>
+  <br> <br>
+  <p> This paragraph will be updated later with more about HydroQuality.</p>
+
+  <!-- Button trigger modal -->
+  <button type="button" id="drag-and-drop-modal" class="upload-buttons btn-xl" onclick="loadLoadingModal()">
+    <i class="fas fa-file-upload large-fa-icon"></i><br><br>
+  DRAG AND DROP A CSV FILE INTO THIS SQUARE
+  </button>
+  <div class="table-responsive no-display">  
+ <!-- <div class="container">   -->
+    <p> Temporary table having scroll bars when minimized: </p>
+    <table class="table table-bordered">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points1</th>
+        <th>Points2</th>
+        <th>Points3</th>
+        <th>Points4</th>
+        <th>Points5</th>
+        <th>Points6</th>
+        <th>Points7</th>
+        <th>Points8</th>
+        <th>Points9</th>
+        <th>Points10</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>Adam</td>
+        <td>Johnson</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+        <td>67</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="buttons-container">
+ 
+    <button class="upload-buttons col-lg-4" type="button" onclick="loadLoadingModal()"> SELECT A CSV FILE </button> 
+    <form class="col-lg-4" action="verify.html"><input id="continue-button" class="btn btn-secondary" type="submit" value="Continue  > " disabled="disabled"></form>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Uploading file...</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <!-- ARIA (Accessible Rich Internet Applications) defines a way to make Web content and Web applications more accessible to people with disabilities. -->
+          <!-- The aria-hidden property tells screen-readers if they should ignore the element. -->
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body">
+        <img src="ajax-loading.gif" alt="Loading Gif">
+      </div>
+    
+
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-primary">Cancel</button>-->
+        <form action="upload.html"><input type="submit" value="Cancel"></form> 
+      </div>
+
+     </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="upload.js"></script>
+</body>
+</html>

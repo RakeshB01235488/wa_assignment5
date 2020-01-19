@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Homemade+Apple" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+
+	<title>Homework 5</title>
+</head>
+<body>
+    <div class="container">
+    	<header>
+    		<div>
+	        	<h1 class="pull-left"><span class="color-blue">HYDRO</span><span class="color-green">QUALITY</span></h1>
+	        </div>
+	        <div>
+				<ul id="breadcrumb">
+				  <li>Upload</li>
+				  <li>Verify</li>
+				  <li class="active">Configure</li>
+				  <li>Run Tests</li>
+				  <li>Review</li>
+				</ul>
+			</div>
+		</header>
+
+		<div class="configure-main-section">
+			<div class="configure-container">
+				<div class="configure-left-column">
+					<h2>Data Fields</h2>
+					<div class="data-field-text-box">
+						<ul id="data-field-list">
+
+						</ul>
+					</div>
+				</div>
+				<div class="configure-middle-column">
+					<h2>Data Field MetaData</h2>
+					<div id="meta-data-text-box" class="data-field-text-box">
+					</div>
+					<button id="modify-meta-data" class="btn btn-secondary" disabled onClick="openModifyModal()">Modify Metadata</button>
+				</div>
+				<div class="configure-right-column">
+					<h2>QC Tests</h2>
+					<div id="metadata-field" class="data-field-text-box">
+					</div>
+					<div class="button-row">
+						<button id="add-test" class="btn btn-secondary" disabled onClick="openTestModal()">Add Test</button>
+						<button id="modify-test" class="btn btn-secondary" disabled onClick="openTestModal()">Modify Test</button>
+						<button id="remove-test" class="btn btn-secondary" disabled onClick="removeSelectedQCTest()">Remove Test</button>
+					</div>
+				</div>
+			</div>
+			<div class="configure-final-button">
+				<button id="continue-button" onclick="gotoNextPage()" class="btn btn-secondary" disabled>Continue ></button>
+			</div>
+		</div>
+		
+		<!-- Modify Modal -->
+		<div class="modal fade" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="modifyModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="modifyModalLabel"></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <div class="form-group">
+				    <label for="units">Units</label>
+				    <input type="text" class="form-control" id="units" aria-describedby="Units" >
+				</div>
+				<div class="form-group">
+				    <label for="data-type">Data Type</label>
+				    <input type="text" class="form-control" id="data-type" aria-describedby="Units" >
+				</div>
+				<div class="form-group">
+				    <label for="time-units-name">Time Units Name</label>
+				    <input type="text" class="form-control" id="time-units-name" aria-describedby="Units" >
+				</div>
+				<div class="form-group">
+				    <label for="general-category">General Category</label>
+				    <input type="text" class="form-control" id="general-category" aria-describedby="Units" >
+				</div>
+				<div class="form-group">
+				    <label for="time-interval">Time Interval</label>
+				    <input type="text" class="form-control" id="time-interval" aria-describedby="Units" >
+				</div>
+				<div class="form-group">
+				    <label for="time-zone">Time Zone</label>
+				    <input type="text" class="form-control" id="time-zone" aria-describedby="Units" >
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+		        <button type="button" class="btn btn-success" onclick="saveModifyModal()">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- Test Modal -->
+		<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="testModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="testModalLabel">New Test</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <div class="test-body">
+		        	<div class="add-test-chart">
+		        		<div id="chart_div"></div>
+		        	</div>
+		        	<div class="test-type">
+						<div class="form-group">
+						    <label for="test-types">Test Type</label>
+						    <select class="form-control" id="test-types">
+						      <option value="outlier">Outlier Detection</option>
+						      <option value="repeat">Repeat Value</option>
+						      <option value="ml">Machine Learning</option>
+						    </select>
+					  </div>
+					  <div class="form-group">
+						    <label for="random">Field to be determined later</label>
+						    <input type="text" class="form-control" id="random" aria-describedby="Units" >
+						</div>
+						<div class="form-group">
+						    <label for="blah">2nd Field to be determined later</label>
+						    <input type="text" class="form-control" id="blah" aria-describedby="Units" >
+						</div>
+		        	</div>
+		        </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+		        <button type="button" class="btn btn-success" onclick="saveTestModal()">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+	</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="configure.js"></script>
+</body>
+</html>
